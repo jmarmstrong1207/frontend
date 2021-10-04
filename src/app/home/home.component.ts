@@ -14,13 +14,13 @@ export class HomeComponent implements OnInit {
 
   // Start displays "Start" so that the user can start bot. "Stop" is vice versa
   public startStopButton = 'Start';
-  public botStarted: boolean | undefined;
+  public botStarted = false;
 
   constructor(private http: HttpClient, private critz: CritzlezOSConnectorService) { }
 
   toggle() {
     this.updateBotStartStatus();
-    if (this.botStarted === false || this.botStarted === undefined) {
+    if (this.botStarted === false) {
       this.startBot("true");
     }
     else {
@@ -34,7 +34,6 @@ export class HomeComponent implements OnInit {
     this.critz.getBotStartObservable(str).subscribe(data => { }, error => {
       console.error(error);
       this.startStopButton = 'ERROR, CHECK CONSOLE'
-      this.botStarted = undefined;
     });
   }
 
@@ -50,7 +49,6 @@ export class HomeComponent implements OnInit {
       }
     }, error => {
       this.startStopButton = 'ERROR, CHECK CONSOLE'
-      this.botStarted = undefined;
       console.error(error);
     });
 
