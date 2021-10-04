@@ -1,5 +1,7 @@
 # CritzlezOS Frontend
 
+This is the frontend to my CritzlezOS discord bot. Currently in-progress.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.7.
 
 ## Development server
